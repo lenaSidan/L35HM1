@@ -1,12 +1,14 @@
 public class Product {
-    private String productName;
+    private final String productName;
     private double price;
     private ProductCategory category;
+    private double priceHistory;
 
     public Product(String productName, double price, ProductCategory category) {
         this.productName = productName;
         this.price = price;
         this.category = category;
+        this.priceHistory = price;
     }
 
     @Override
@@ -14,7 +16,7 @@ public class Product {
         return "Product Name: " +productName+ " Product price = " + price +" €"+", category: " + category;
     }
     public String getProductName(){
-        return "Product Name: " +productName;
+        return "\nProduct Name: " +productName;
     }
     public void setProductName(){
         //this.productName= productName;
@@ -24,7 +26,8 @@ public class Product {
     }
     public void setPrice(double price){
         if (price<=0){
-            this.price=price;
+            this.priceHistory=this.priceHistory+1;
+            this.price=price-1;
         }
 
     }
@@ -32,5 +35,9 @@ public class Product {
 /*
 У каждого товара есть цена, наименование категория к которой он относится.
 Важно, что после создания товара ни одно из его свойств не должно быть,
-доступно для изменения, т.е. все поля должны быть private. Создать список товаров
+доступно для изменения, т.е. все поля должны быть private. Создать список товаров.
+
+Реализовать в классе Товар возможность изменения цены.
+При этом система не должна давать возможность поставить отрицательную цену или 0
+Видимо, понадобится сеттер. **НЕОБЯЗАТЕЛЬНОЕ.Добавить возможность вести истории изменения цены у товара.
  */

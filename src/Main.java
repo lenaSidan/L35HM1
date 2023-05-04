@@ -9,10 +9,10 @@ public class Main {
         products.add(new Product("Bread",2.50,ProductCategory.PRODUCTS));
         products.add(new Product("Washing Machine",599,ProductCategory.ELECTRONICS));
         products.add(new Product("Coat", 150, ProductCategory.CLOTH));
+        products.add(new Product("Bread",2.90,ProductCategory.PRODUCTS));
 
         Map<String, Double> namePriceMap = getProductPriceMap(products);
         System.out.println(namePriceMap);
-
 
     }
     public static Map<String, Double> getProductPriceMap(List<Product>products){
