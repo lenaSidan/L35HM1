@@ -1,18 +1,23 @@
 public class Product {
+    private String productName;
     private double price;
     private ProductCategory category;
 
-    public Product(double price, ProductCategory category) {
+    public Product(String productName, double price, ProductCategory category) {
+        this.productName = productName;
         this.price = price;
         this.category = category;
     }
 
     @Override
     public String toString() {
-        return "Product{" +
-                "price=" + price +
-                ", category=" + category +
-                '}';
+        return "Product Name: " +productName+ " Product price = " + price +" €"+", category: " + category;
+    }
+    private String getProductName(){
+        return productName;
+    }
+    private double getPrice(){
+        return price;
     }
 }
 /*

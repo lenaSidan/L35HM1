@@ -1,6 +1,10 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+       Product bread = new Product("Bread",2.50,ProductCategory.PRODUCTS);
+       Product washingMachine = new Product("Washing Machine",599,ProductCategory.ELECTRONICS);
+       Product coat = new Product("Coat", 150, ProductCategory.CLOTH);
+        System.out.println(coat);
+
     }
 }
 /*
