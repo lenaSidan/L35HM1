@@ -1,10 +1,27 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class Main {
     public static void main(String[] args) {
-       Product bread = new Product("Bread",2.50,ProductCategory.PRODUCTS);
-       Product washingMachine = new Product("Washing Machine",599,ProductCategory.ELECTRONICS);
-       Product coat = new Product("Coat", 150, ProductCategory.CLOTH);
-        System.out.println(coat);
+        List<Product>products= new ArrayList<>();
+        products.add(new Product("Bread",2.50,ProductCategory.PRODUCTS));
+        products.add(new Product("Washing Machine",599,ProductCategory.ELECTRONICS));
+        products.add(new Product("Coat", 150, ProductCategory.CLOTH));
 
+        Map<String, Double> namePriceMap = getProductPriceMap(products);
+        System.out.println(namePriceMap);
+
+
+    }
+    public static Map<String, Double> getProductPriceMap(List<Product>products){
+        Map<String, Double> namePriceMap = new HashMap<>();
+        for (Product product:products){
+            namePriceMap.put(product.getProductName(), product.getPrice());
+
+        }
+        return namePriceMap;
     }
 }
 /*

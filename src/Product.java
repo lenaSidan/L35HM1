@@ -13,11 +13,20 @@ public class Product {
     public String toString() {
         return "Product Name: " +productName+ " Product price = " + price +" €"+", category: " + category;
     }
-    private String getProductName(){
-        return productName;
+    public String getProductName(){
+        return "Product Name: " +productName;
     }
-    private double getPrice(){
+    public void setProductName(){
+        //this.productName= productName;
+    }
+    public double getPrice(){
         return price;
+    }
+    public void setPrice(double price){
+        if (price<=0){
+            this.price=price;
+        }
+
     }
 }
 /*
