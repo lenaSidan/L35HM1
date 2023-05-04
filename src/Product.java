@@ -1,35 +1,45 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Product {
-    private final String productName;
+    private  String productName;
     private double price;
     private ProductCategory category;
-    private double priceHistory;
+    private List<Double> priceHistory;
 
     public Product(String productName, double price, ProductCategory category) {
         this.productName = productName;
         this.price = price;
         this.category = category;
-        this.priceHistory = price;
+        this.priceHistory = new ArrayList<>();
+        this.priceHistory.add(price);
     }
 
     @Override
     public String toString() {
-        return "Product Name: " +productName+ " Product price = " + price +" €"+", category: " + category;
+        return "\nProduct Name: " +productName+ " Product price = " + price +" €"+", category: " + category;
     }
     public String getProductName(){
         return "\nProduct Name: " +productName;
     }
-    public void setProductName(){
-        //this.productName= productName;
+    public void setProductName(String productName){
+        this.productName= productName;
     }
     public double getPrice(){
         return price;
     }
-    public void setPrice(double price){
-        if (price<=0){
-            this.priceHistory=this.priceHistory+1;
-            this.price=price-1;
+    public boolean setPrice(double newPrice){
+        if (newPrice<=0){
+            this.priceHistory.add(newPrice);
+            this.price = newPrice;
+            return true;
+        }else {
+            return false;
         }
+    }
 
+    public List<Double> getPriceHistory() {
+        return priceHistory;
     }
 }
 /*
